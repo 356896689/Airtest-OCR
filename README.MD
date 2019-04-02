@@ -41,17 +41,22 @@ touch(a[0])
 ## 2、使用介绍
 
   1）引入工具类from airtest.core.tools import *
+  
   2）在新的页面中执行操作需要先截图snapshot('f:1.jpg')，例子中保存图片在f盘下起名为1.jpg
+  
   3）pixel_find(input,filePath=None,temp=None)函数为主函数
 	input为在页面中查找的中文字符
 	filePath为截图的路径
 	temp为函数返回的值
+	
   4）a,b = pixel_find('关注',None,b)
 	touch(a[0])
 	a,b = pixel_find('视频',None,b)
 	touch(a[0])
 	a为返回的坐标，用于touch点击操作，b为返回的所有查找到的汉字的坐标，在同一页面中再次做touch操作，不需要输入filePath，只需输入上一个pixel_find()返回的b，把filePath制为None，例如：pixel_find('关注',None,b)
+	
   5）在C盘根目录路径下有log.txt文件，此文件中记载所有查询到的汉字，如果页面报错：list index out of range，可以去log.txt文件查看是否识别到了该汉字，可以根据文件内容适当调整输入内容。例如，输入为“任务管理”查询不到，可以输入“任务”或“管理”
+  
   6）此方法可以和Airtest截图方法一起试用
   ![] (tree/master/image/4.jpg)
   

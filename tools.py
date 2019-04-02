@@ -123,9 +123,3 @@ def pixel_find(input,filePath=None,temp=None):
         y = height - y
         pixel.append((x,y))
     return pixel, temp
-
-# if __name__ == '__main__':
-#     img_path = 'F:/随行付/机器学习/ai自动化/plus/airtest/case/log_20190115_155319/荐者有红包_分享/1547538822749.jpg'
-#     # ocr_find(img_path)
-#     a = pixel_find('登录',img_path)
-#     print(a)

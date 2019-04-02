@@ -7,11 +7,11 @@
 ## 3、在anaconda中安装pytesseract和airtest
 
 ## 4、在pytesseract安装包里找到pytesseract.py中修改tesseract_cmd 路径为tesser-ocr路径
-![] (tree/master/image/1.jpg)
+![] (https://github.com/356896689/Airtest-OCR/tree/master/image/1.jpg)
 ## 5、在airtest——选项——设置中配置python环境为本地anaconda的python.exe
-![] (tree/master/image/2.jpg)
+![] (https://github.com/356896689/Airtest-OCR/tree/master/image/2.jpg)
 ## 6、将拓展工具类复制到anaconda中airtest路径下的core文件夹内
-![] (tree/master/image/3.jpg)
+![] (https://github.com/356896689/Airtest-OCR/tree/master/image/3.jpg)
 
 # 使用手册：
 
@@ -58,7 +58,7 @@ touch(a[0])
   5）在C盘根目录路径下有log.txt文件，此文件中记载所有查询到的汉字，如果页面报错：list index out of range，可以去log.txt文件查看是否识别到了该汉字，可以根据文件内容适当调整输入内容。例如，输入为“任务管理”查询不到，可以输入“任务”或“管理”
   
   6）此方法可以和Airtest截图方法一起试用
-  ![] (tree/master/image/4.jpg)
+  ![] (https://github.com/356896689/Airtest-OCR/tree/master/image/4.jpg)
   
 ## 3、注意事项
 

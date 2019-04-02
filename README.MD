@@ -1,23 +1,23 @@
-# »·¾³ĞèÒª£º
+# ç¯å¢ƒéœ€è¦ï¼š
 
-## 1¡¢ÏÂÔØanaconda ²¢°²×°
+## 1ã€ä¸‹è½½anaconda å¹¶å®‰è£…
 
-## 2¡¢ÏÂÔØtesser-ocr°²×°²¢ÅäÖÃ»·¾³±äÁ¿
+## 2ã€ä¸‹è½½tesser-ocrå®‰è£…å¹¶é…ç½®ç¯å¢ƒå˜é‡
 
-## 3¡¢ÔÚanacondaÖĞ°²×°pytesseractºÍairtest
+## 3ã€åœ¨anacondaä¸­å®‰è£…pytesseractå’Œairtest
 
-## 4¡¢ÔÚpytesseract°²×°°üÀïÕÒµ½pytesseract.pyÖĞĞŞ¸Ätesseract_cmd Â·¾¶Îªtesser-ocrÂ·¾¶
-![1.jpg] (https://github.com/356896689/Airtest-OCR/blob/master/image/1.jpg)
+## 4ã€åœ¨pytesseractå®‰è£…åŒ…é‡Œæ‰¾åˆ°pytesseract.pyä¸­ä¿®æ”¹tesseract_cmd è·¯å¾„ä¸ºtesser-ocrè·¯å¾„
+![1.jpg](image/1.jpg)
 
-## 5¡¢ÔÚairtest¡ª¡ªÑ¡Ïî¡ª¡ªÉèÖÃÖĞÅäÖÃpython»·¾³Îª±¾µØanacondaµÄpython.exe
-![2.jpg] (https://github.com/356896689/Airtest-OCR/blob/master/image/2.jpg)
+## 5ã€åœ¨airtestâ€”â€”é€‰é¡¹â€”â€”è®¾ç½®ä¸­é…ç½®pythonç¯å¢ƒä¸ºæœ¬åœ°anacondaçš„python.exe
+![2.jpg](image/2.jpg)
 
-## 6¡¢½«ÍØÕ¹¹¤¾ßÀà¸´ÖÆµ½anacondaÖĞairtestÂ·¾¶ÏÂµÄcoreÎÄ¼ş¼ĞÄÚ
-![3.jpg] (https://github.com/356896689/Airtest-OCR/blob/master/image/3.jpg)
+## 6ã€å°†æ‹“å±•å·¥å…·ç±»å¤åˆ¶åˆ°anacondaä¸­airtestè·¯å¾„ä¸‹çš„coreæ–‡ä»¶å¤¹å†…
+![3.jpg](image/3.jpg)
 
-# Ê¹ÓÃÊÖ²á£º
+# ä½¿ç”¨æ‰‹å†Œï¼š
 
-## 1¡¢½Å±¾Ê¾Àı£º
+## 1ã€è„šæœ¬ç¤ºä¾‹ï¼š
 
 ```html
 # -*- encoding=utf8 -*-
@@ -27,42 +27,42 @@ from airtest.core.api import *
 from airtest.core.tools import *
 
 snapshot('f:1.jpg')
-a,b = pixel_find('ÔÆÉÁ¸¶','f:1.jpg')
+a,b = pixel_find('äº‘é—ªä»˜','f:1.jpg')
 print(a)
 touch(a[0])
 sleep(3)
-a,b = pixel_find('×ÊÑ¶',None,b)
+a,b = pixel_find('èµ„è®¯',None,b)
 touch(a[0])
 sleep(3)
-a,b = pixel_find('ÎÒµÄ',None,b)
+a,b = pixel_find('æˆ‘çš„',None,b)
 touch(a[0])
 sleep(3)
-a,b = pixel_find('ÊÕ¿î',None,b)
+a,b = pixel_find('æ”¶æ¬¾',None,b)
 touch(a[0])
 ```
-## 2¡¢Ê¹ÓÃ½éÉÜ
+## 2ã€ä½¿ç”¨ä»‹ç»
 
-  1£©ÒıÈë¹¤¾ßÀàfrom airtest.core.tools import *
+  1ï¼‰å¼•å…¥å·¥å…·ç±»from airtest.core.tools import *
   
-  2£©ÔÚĞÂµÄÒ³ÃæÖĞÖ´ĞĞ²Ù×÷ĞèÒªÏÈ½ØÍ¼snapshot('f:1.jpg')£¬Àı×ÓÖĞ±£´æÍ¼Æ¬ÔÚfÅÌÏÂÆğÃûÎª1.jpg
+  2ï¼‰åœ¨æ–°çš„é¡µé¢ä¸­æ‰§è¡Œæ“ä½œéœ€è¦å…ˆæˆªå›¾snapshot('f:1.jpg')ï¼Œä¾‹å­ä¸­ä¿å­˜å›¾ç‰‡åœ¨fç›˜ä¸‹èµ·åä¸º1.jpg
   
-  3£©pixel_find(input,filePath=None,temp=None)º¯ÊıÎªÖ÷º¯Êı
-	inputÎªÔÚÒ³ÃæÖĞ²éÕÒµÄÖĞÎÄ×Ö·û
-	filePathÎª½ØÍ¼µÄÂ·¾¶
-	tempÎªº¯Êı·µ»ØµÄÖµ
+  3ï¼‰pixel_find(input,filePath=None,temp=None)å‡½æ•°ä¸ºä¸»å‡½æ•°
+	inputä¸ºåœ¨é¡µé¢ä¸­æŸ¥æ‰¾çš„ä¸­æ–‡å­—ç¬¦
+	filePathä¸ºæˆªå›¾çš„è·¯å¾„
+	tempä¸ºå‡½æ•°è¿”å›çš„å€¼
 	
-  4£©a,b = pixel_find('¹Ø×¢',None,b)
+  4ï¼‰a,b = pixel_find('å…³æ³¨',None,b)
 	touch(a[0])
-	a,b = pixel_find('ÊÓÆµ',None,b)
+	a,b = pixel_find('è§†é¢‘',None,b)
 	touch(a[0])
-	aÎª·µ»ØµÄ×ø±ê£¬ÓÃÓÚtouchµã»÷²Ù×÷£¬bÎª·µ»ØµÄËùÓĞ²éÕÒµ½µÄºº×ÖµÄ×ø±ê£¬ÔÚÍ¬Ò»Ò³ÃæÖĞÔÙ´Î×ötouch²Ù×÷£¬²»ĞèÒªÊäÈëfilePath£¬Ö»ĞèÊäÈëÉÏÒ»¸öpixel_find()·µ»ØµÄb£¬°ÑfilePathÖÆÎªNone£¬ÀıÈç£ºpixel_find('¹Ø×¢',None,b)
+	aä¸ºè¿”å›çš„åæ ‡ï¼Œç”¨äºtouchç‚¹å‡»æ“ä½œï¼Œbä¸ºè¿”å›çš„æ‰€æœ‰æŸ¥æ‰¾åˆ°çš„æ±‰å­—çš„åæ ‡ï¼Œåœ¨åŒä¸€é¡µé¢ä¸­å†æ¬¡åštouchæ“ä½œï¼Œä¸éœ€è¦è¾“å…¥filePathï¼Œåªéœ€è¾“å…¥ä¸Šä¸€ä¸ªpixel_find()è¿”å›çš„bï¼ŒæŠŠfilePathåˆ¶ä¸ºNoneï¼Œä¾‹å¦‚ï¼špixel_find('å…³æ³¨',None,b)
 	
-  5£©ÔÚCÅÌ¸ùÄ¿Â¼Â·¾¶ÏÂÓĞlog.txtÎÄ¼ş£¬´ËÎÄ¼şÖĞ¼ÇÔØËùÓĞ²éÑ¯µ½µÄºº×Ö£¬Èç¹ûÒ³Ãæ±¨´í£ºlist index out of range£¬¿ÉÒÔÈ¥log.txtÎÄ¼ş²é¿´ÊÇ·ñÊ¶±ğµ½ÁË¸Ãºº×Ö£¬¿ÉÒÔ¸ù¾İÎÄ¼şÄÚÈİÊÊµ±µ÷ÕûÊäÈëÄÚÈİ¡£ÀıÈç£¬ÊäÈëÎª¡°ÈÎÎñ¹ÜÀí¡±²éÑ¯²»µ½£¬¿ÉÒÔÊäÈë¡°ÈÎÎñ¡±»ò¡°¹ÜÀí¡±
+  5ï¼‰åœ¨Cç›˜æ ¹ç›®å½•è·¯å¾„ä¸‹æœ‰log.txtæ–‡ä»¶ï¼Œæ­¤æ–‡ä»¶ä¸­è®°è½½æ‰€æœ‰æŸ¥è¯¢åˆ°çš„æ±‰å­—ï¼Œå¦‚æœé¡µé¢æŠ¥é”™ï¼šlist index out of rangeï¼Œå¯ä»¥å»log.txtæ–‡ä»¶æŸ¥çœ‹æ˜¯å¦è¯†åˆ«åˆ°äº†è¯¥æ±‰å­—ï¼Œå¯ä»¥æ ¹æ®æ–‡ä»¶å†…å®¹é€‚å½“è°ƒæ•´è¾“å…¥å†…å®¹ã€‚ä¾‹å¦‚ï¼Œè¾“å…¥ä¸ºâ€œä»»åŠ¡ç®¡ç†â€æŸ¥è¯¢ä¸åˆ°ï¼Œå¯ä»¥è¾“å…¥â€œä»»åŠ¡â€æˆ–â€œç®¡ç†â€
   
-  6£©´Ë·½·¨¿ÉÒÔºÍAirtest½ØÍ¼·½·¨Ò»ÆğÊ¹ÓÃ
+  6ï¼‰æ­¤æ–¹æ³•å¯ä»¥å’ŒAirtestæˆªå›¾æ–¹æ³•ä¸€èµ·ä½¿ç”¨
   
-  ![4.jpg] (https://github.com/356896689/Airtest-OCR/blob/master/image/4.jpg)
+  ![4.jpg](image/4.jpg)
   
-## 3¡¢×¢ÒâÊÂÏî
+## 3ã€æ³¨æ„äº‹é¡¹
 
-  ²âÊÔ×îºÃÊ¹ÓÃÕæ»ú£¬ÒòÄ£Äâ»úÆ÷·Ö±æÂÊÎÊÌâ£¬×ÖÌåÊ¶±ğĞ§¹ûºÜ²î£¬ÎÒÊ¹ÓÃµÄÊÇÌìÌìÄ£ÄâÆ÷3.2.5£¬Èç¹ûÄ£ÄâÆ÷ÊúÆÁÓĞºÜ¸ßµÄ·Ö±æÂÊ»òÔÚ´óÆÁÄ¿ÖĞÖ´ĞĞ½Å±¾Ò²Ğí¿ÉÒÔ^_^£¬´óÆÁµÄÍ¬Ñ§¿ÉÒÔÊÔÒ»ÏÂ¡£
+  æµ‹è¯•æœ€å¥½ä½¿ç”¨çœŸæœºï¼Œå› æ¨¡æ‹Ÿæœºå™¨åˆ†è¾¨ç‡é—®é¢˜ï¼Œå­—ä½“è¯†åˆ«æ•ˆæœå¾ˆå·®ï¼Œæˆ‘ä½¿ç”¨çš„æ˜¯å¤©å¤©æ¨¡æ‹Ÿå™¨3.2.5ï¼Œå¦‚æœæ¨¡æ‹Ÿå™¨ç«–å±æœ‰å¾ˆé«˜çš„åˆ†è¾¨ç‡æˆ–åœ¨å¤§å±ç›®ä¸­æ‰§è¡Œè„šæœ¬ä¹Ÿè®¸å¯ä»¥^_^ï¼Œå¤§å±çš„åŒå­¦å¯ä»¥è¯•ä¸€ä¸‹ã€‚

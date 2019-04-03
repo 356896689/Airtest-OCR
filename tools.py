@@ -37,34 +37,15 @@ def ocr_find(filePath):
 
     def code(x):
         code = pytesseract.image_to_boxes \
-            (imgry, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
+            (x, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
         return code
-    def code1(x):
-        code1 = pytesseract.image_to_boxes \
-            (imgcanny, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
-        return code1
-    def code2(x):
-        code2 = pytesseract.image_to_boxes \
-            (thresh1, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
-        return code2
-    def code3(x):
-        code3 = pytesseract.image_to_boxes \
-            (thresh2, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
-        return code3
-    def code4(x):
-        code4 = pytesseract.image_to_boxes \
-            (thresh3, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
-        return code4
-    def code5(x):
-        code5 = pytesseract.image_to_boxes \
-            (thresh4, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
-        return code5
-    t1 = MyThread(code,range(1))
-    t2 = MyThread(code1,range(1))
-    t3 = MyThread(code2,range(1))
-    t4 = MyThread(code3,range(1))
-    t5 = MyThread(code4,range(1))
-    t6 = MyThread(code5,range(1))
+
+    t1 = MyThread(code,args=(imgry,))
+    t2 = MyThread(code,args=(imgcanny,))
+    t3 = MyThread(code,args=(thresh1,))
+    t4 = MyThread(code,args=(thresh2,))
+    t5 = MyThread(code,args=(thresh3,))
+    t6 = MyThread(code,args=(thresh4,))
     t1.start(),t2.start(),t3.start(),t4.start(),t5.start(),t6.start()
     t1.join(),t2.join(),t3.join(),t4.join(),t5.join(),t6.join()
     z = t1.get_result()+'\n'+t2.get_result()+'\n'+t3.get_result()+'\n'\
@@ -126,6 +107,5 @@ def pixel_find(input,filePath=None,temp=None):
 
 # if __name__ == '__main__':
 #     img_path = 'F:1.jpg'
-#     # ocr_find(img_path)
-#     a = pixel_find('登录',img_path)
+#     a,b = pixel_find('管理',img_path)
 #     print(a)

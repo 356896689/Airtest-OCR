@@ -7,7 +7,7 @@ import threading
 class MyThread(threading.Thread):
 
     def __init__(self,func,args=()):
-        super(MyThread,self).__init__()
+        threading.Thread.__init__(self)
         self.func = func
         self.args = args
 
@@ -29,27 +29,27 @@ def ocr_find(filePath):
     img = cv_imread(filePath)
     height, width, _ = img.shape
     imgry = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    imgcanny = cv2.Canny(img, 50, 255)
-    ret, thresh1 = cv2.threshold(imgry, 141, 255, 0)
-    ret, thresh2 = cv2.threshold(imgry, 180, 255, 1)
-    ret, thresh3 = cv2.threshold(imgry, 220, 255, 0)
-    ret, thresh4 = cv2.threshold(imgry, 200, 255, 0)
-
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    cl = clahe.apply(imgry)
+    ret, thresh1 = cv2.threshold(cl, 0.66 * cl.mean(), cl.max(), 1)
+    ret, thresh2 = cv2.threshold(cl, 0.66 * cl.mean(), cl.max(), 0)
+    kernel = np.ones((5, 5), np.uint8)
+    opening = cv2.morphologyEx(thresh2, cv2.MORPH_OPEN, kernel)
     def code(x):
         code = pytesseract.image_to_boxes \
-            (x, lang='chi_sim', config='', nice=1, output_type=pytesseract.Output.STRING)
+            (x, lang='chi_sim', config='', nice=0, output_type=pytesseract.Output.STRING)
         return code
 
-    t1 = MyThread(code,args=(imgry,))
-    t2 = MyThread(code,args=(imgcanny,))
-    t3 = MyThread(code,args=(thresh1,))
-    t4 = MyThread(code,args=(thresh2,))
-    t5 = MyThread(code,args=(thresh3,))
-    t6 = MyThread(code,args=(thresh4,))
-    t1.start(),t2.start(),t3.start(),t4.start(),t5.start(),t6.start()
-    t1.join(),t2.join(),t3.join(),t4.join(),t5.join(),t6.join()
-    z = t1.get_result()+'\n'+t2.get_result()+'\n'+t3.get_result()+'\n'\
-        +t4.get_result()+'\n'+t5.get_result()+'\n'+t6.get_result()
+    t1 = MyThread(code,args=(cl,))
+    t2 = MyThread(code,args=(thresh1,))
+    t3 = MyThread(code,args=(opening,))
+    t1.start()
+    t2.start()
+    t3.start()
+    t1.join()
+    t2.join()
+    t3.join()
+    z = t1.get_result()+'\n'+t2.get_result()+'\n'+t3.get_result()
 
     f = open('C:/log.txt', 'w', encoding='utf-8')
     f.writelines(z)
@@ -107,5 +107,5 @@ def pixel_find(input,filePath=None,temp=None):
 
 # if __name__ == '__main__':
 #     img_path = 'F:1.jpg'
-#     a,b = pixel_find('管理',img_path)
+#     a,b = pixel_find('立即',img_path)
 #     print(a)

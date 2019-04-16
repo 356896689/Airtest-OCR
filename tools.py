@@ -36,7 +36,7 @@ def ocr_find(filePath):
 
     def code(x):
         code = pytesseract.image_to_boxes \
-            (x, lang='chi_sim', config='', nice=0, output_type=pytesseract.Output.STRING)
+            (x, lang='chi_sim1', config='', nice=0, output_type=pytesseract.Output.STRING)
         return code
 
     t1 = MyThread(code,args=(cl,))

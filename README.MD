@@ -15,6 +15,8 @@
 ## 6、将拓展工具类复制到anaconda中airtest路径下的core文件夹内
 ![3.jpg](image/3.jpg)
 
+## 7、将chi_sim1.traineddata复制到tesser-ocr安装路径下的tessdata文件夹
+
 # 使用手册：
 
 ## 1、脚本示例：

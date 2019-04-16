@@ -33,8 +33,7 @@ def ocr_find(filePath):
     cl = clahe.apply(imgry)
     ret, thresh1 = cv2.threshold(cl, 0.66 * cl.mean(), cl.max(), 1)
     ret, thresh2 = cv2.threshold(cl, 0.66 * cl.mean(), cl.max(), 0)
-    kernel = np.ones((5, 5), np.uint8)
-    opening = cv2.morphologyEx(thresh2, cv2.MORPH_OPEN, kernel)
+
     def code(x):
         code = pytesseract.image_to_boxes \
             (x, lang='chi_sim', config='', nice=0, output_type=pytesseract.Output.STRING)
@@ -42,7 +41,7 @@ def ocr_find(filePath):
 
     t1 = MyThread(code,args=(cl,))
     t2 = MyThread(code,args=(thresh1,))
-    t3 = MyThread(code,args=(opening,))
+    t3 = MyThread(code,args=(thresh2,))
     t1.start()
     t2.start()
     t3.start()
